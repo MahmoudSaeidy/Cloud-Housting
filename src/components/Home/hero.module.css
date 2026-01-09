@@ -1,0 +1,8 @@
+.hero {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: space-around;
+    color: rgb(10, 9, 9);
+    padding: 0 30px;
+    align-items: center;
+}

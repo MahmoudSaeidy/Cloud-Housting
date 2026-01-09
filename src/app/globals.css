@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+.fix-height{
+    min-height: calc(100vh - 136px);
+}
+body{
+    background-color: rgb(239, 239, 239);
+}
+button:disabled{
+    cursor: not-allowed;
+}
+.toast-container-responsive {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+@media (max-width: 767px) {
+  .toast-container-responsive {
+    bottom: 16px !important;
+    right: 16px !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+  
+  .Toastify__toast {
+    border-radius: 12px !important;
+    margin-bottom: 8px !important;
+    min-height: 60px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .toast-container-responsive {
+    bottom: 24px !important;
+    right: 24px !important;
+    max-width: 400px !important;
+  }
+}
+@media (min-width: 1024px) {
+  .toast-container-responsive {
+    bottom: 32px !important;
+    right: 32px !important;
+    max-width: 450px !important;
+  }
+}
