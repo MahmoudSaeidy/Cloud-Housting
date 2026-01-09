@@ -14,7 +14,7 @@ const DeleteArticleButton = ({articleId}:DeleteArticleProps) => {
     const deleteArticleHandler = async () =>{
     try {
         if(confirm("you want delete this article , Are you sure ?")){
-            await axios.delete(`${DOMAIN}articles/${articleId}`)
+            await axios.delete(`${DOMAIN}api/articles/${articleId}`)
             router.refresh()
             toast.success("Article deleted")
 

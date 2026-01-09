@@ -1,9 +1,10 @@
 import type { Comment } from '@prisma/client';
+import {DOMAIN} from "@/src/utils/constants"
 
 
 
 export async function GetAllComment(token: string): Promise<Comment[]> {
-  const response = await fetch("http://localhost:3000/api/comments", {
+  const response = await fetch(`${DOMAIN}api/comments`, {
     headers: { Cookie: `jwtToken=${token}` }
   });
 
