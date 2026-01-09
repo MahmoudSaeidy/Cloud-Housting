@@ -10,7 +10,7 @@ import {CommentWithUser} from "@/src/utils/types"
 import {cookies} from "next/headers"
 import { verifyTokenForPage } from '@/src/utils/verifyToken'
 import CommentsClient from "@/src/components/articles/comments/CommentsClient"
-
+import {DOMAIN} from "@/src/utils/constants"
 
 
 interface SingleArticleProps {
@@ -26,7 +26,7 @@ export default async function SingleArticlePage({ params }: SingleArticleProps) 
 
     const { id } = await params
     const articleNum = parseInt(id)
-    const response = await fetch(`http://localhost:3000/api/articles/${id}`)
+    const response = await fetch(`${DOMAIN}api/articles/${id}`)
     if (!response.ok) {
       notFound()
     }

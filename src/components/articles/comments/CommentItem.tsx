@@ -8,6 +8,9 @@ import { verifyTokenForPage } from '@/src/utils/verifyToken'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import {DOMAIN} from "@/src/utils/constants"
+
+
 
 interface commentItemProps {
   comment: CommentWithUser
@@ -22,7 +25,7 @@ const CommentItem = ({ comment , userId}: commentItemProps) => {
   const commentDeleteHandler = async ()=>{
     try{
         if(window.confirm("You want delete this comment , Are You Sure ?")){
-            await axios.delete(`http://localhost:3000/api/comments/${comment.id}`)
+            await axios.delete(`${DOMAIN}api/comments/${comment.id}`)
             router.refresh()
         }
 

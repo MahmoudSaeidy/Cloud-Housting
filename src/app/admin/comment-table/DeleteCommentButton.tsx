@@ -3,7 +3,7 @@ import axios from 'axios'
 import React from 'react'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-
+import {DOMAIN} from "@/src/utils/constants"
 
 
 interface DeleteCommentButtonProps {
@@ -14,7 +14,7 @@ const DeleteCommentButton = ({commentId}:DeleteCommentButtonProps) => {
     async function DeleteCommentButtonHandler(){
         try{
             if(confirm("you want to delete this comment , are you sure ?")){
-            await axios.delete(`http://localhost:3000/api/comments/${commentId}`)
+            await axios.delete(`${DOMAIN}api/comments/${commentId}`)
             toast.success("Comment Deleted")
             router.refresh()
             }

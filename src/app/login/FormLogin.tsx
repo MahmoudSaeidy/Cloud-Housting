@@ -5,6 +5,8 @@ import {toast} from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import ButtonSpinner from "@/src/components/ButtonSpinner"
+import {DOMAIN} from "@/src/utils/constants"
+
 
 export const FormLogin = () => {
     const router = useRouter()
@@ -23,7 +25,7 @@ export const FormLogin = () => {
         }
         else{
             try{
-                await axios.post("http://localhost:3000/api/users/login" , {email , password})
+                await axios.post(`${DOMAIN}api/users/login` , {email , password})
     
                 router.replace("/")
                 setLoading(false)

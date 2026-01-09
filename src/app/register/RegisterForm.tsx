@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import {toast} from 'react-toastify';
 import ButtonSpinner from '@/src/components/ButtonSpinner';
+import {DOMAIN} from "@/src/utils/constants"
+
 
 const FormRegister = () => {
     const router = useRouter()
@@ -31,7 +33,7 @@ const FormRegister = () => {
         }
         else{
             setLoading(true)
-            await axios.post("http://localhost:3000/api/users/register" , {name , username , email , password})
+            await axios.post(`${DOMAIN}api/users/register` , {name , username , email , password})
             setLoading(false)
             router.replace("/")
             router.refresh()

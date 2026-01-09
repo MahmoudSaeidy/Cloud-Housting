@@ -1,6 +1,7 @@
 import axios from "axios";
+import { DOMAIN } from "./constants";
 
 export async function LogoutHandler() {
-   return await axios.get("http://localhost:3000/api/users/logout")
+   return await axios.get(`${DOMAIN}api/users/logout`)
     
 }

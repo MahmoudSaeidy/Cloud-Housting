@@ -1,10 +1,11 @@
 import { Article } from "@prisma/client"
 import {ArticleWithComment} from "@/src/utils/types"
+import {DOMAIN} from "@/src/utils/constants"
 
 export const getArticles = async (pageNumber: string | undefined): Promise<Article[]> => {
   try {
 const response = await fetch(
-  `http://localhost:3000/api/articles?pageNumber=${pageNumber || "1"}`,
+  `${DOMAIN}api/articles?pageNumber=${pageNumber || "1"}`,
   { cache: "no-store" ,        next: { 
           tags: ['articles'] 
         }} 
@@ -23,7 +24,7 @@ const response = await fetch(
 }
 
 export const getCount = async ():Promise <number>=>{
-  const response = await fetch(`http://localhost:3000/api/articles/count`)
+  const response = await fetch(`${DOMAIN}api/articles/count`)
 
   if (!response.ok) {
     throw new Error("Filled to get articles count")
@@ -35,7 +36,7 @@ export const getCount = async ():Promise <number>=>{
 }
 
 export const getArticlesBasedOnSearchText = async (searchText:string):Promise <Article[]>=>{
-  const response = await fetch(`http://localhost:3000/api/articles/search?searchText=${searchText}`)
+  const response = await fetch(`${DOMAIN}api/articles/search?searchText=${searchText}`)
 
   if (!response.ok) {
     throw new Error("Filled to get articles count")
@@ -44,7 +45,7 @@ export const getArticlesBasedOnSearchText = async (searchText:string):Promise <A
    return await response.json()
 }
 export const getSingleArticle = async (articleId:string):Promise <ArticleWithComment>=>{
-  const response = await fetch(`http://localhost:3000/api/articles/${articleId}`)
+  const response = await fetch(`${DOMAIN}api/articles/${articleId}`)
 
   if (!response.ok) {
     throw new Error("Filled to get articles count")

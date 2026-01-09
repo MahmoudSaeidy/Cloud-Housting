@@ -3,6 +3,7 @@ import axios from 'axios'
 import React from 'react'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
+import {DOMAIN} from "@/src/utils/constants"
 
 interface DeleteArticleProps{
     articleId:number
@@ -13,7 +14,7 @@ const DeleteArticleButton = ({articleId}:DeleteArticleProps) => {
     const deleteArticleHandler = async () =>{
     try {
         if(confirm("you want delete this article , Are you sure ?")){
-            await axios.delete(`http://localhost:3000/api/articles/${articleId}`)
+            await axios.delete(`${DOMAIN}articles/${articleId}`)
             router.refresh()
             toast.success("Article deleted")
 

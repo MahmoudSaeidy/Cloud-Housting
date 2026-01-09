@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation'
 import { toast } from "react-toastify"
 import axios from 'axios'
 import { IoMdCloseCircleOutline } from "react-icons/io"
+import {DOMAIN} from "@/src/utils/constants"
+
 
 interface UpdateCommentModaleProps {
   open: boolean
@@ -31,7 +33,7 @@ export const UpdateCommentModale = ({ open, onClose, commentId, text }: UpdateCo
 
     try {
       setLoading(true)
-      await axios.put(`http://localhost:3000/api/comments/${commentId}`, {
+      await axios.put(`${DOMAIN}api/comments/${commentId}`, {
         text: commentText
       })
       toast.success("Comment updated successfully")

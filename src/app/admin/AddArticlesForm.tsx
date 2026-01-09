@@ -4,7 +4,7 @@ import  {useState}  from 'react'
 import {toast} from 'react-toastify';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-
+import {DOMAIN} from "@/src/utils/constants"
 
 const AddArticlesForm = () => {
     const router = useRouter()
@@ -20,7 +20,7 @@ const AddArticlesForm = () => {
         }
         else{
             try {
-                await axios.post("http://localhost:3000/api/articles" , {title , description})
+                await axios.post(`${DOMAIN}api/articles` , {title , description})
                 setTitle("")
                 setDescription("")
                 toast.success("New article added")
